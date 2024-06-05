@@ -1,0 +1,68 @@
+{
+  "name": "@andyrmitchell/typed-config",
+  "version": "0.0.1",
+  "description": "Get/set data from a config file with full TypeScript IDE autocomplete and TypeScript + Zod schema checking",
+  "exports": {
+    ".": {
+      "module": "./dist/index.mjs",
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "type": "commonjs",
+  "files": [
+    "dist",
+    "README.MD",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build_release": "npm run build_prepare && np",
+    "build": "tsup",
+    "pkglint": "./build/publint_pipeable.sh",
+    "build_prepare": "npm run build && npm run pkglint",
+    "prepublishOnly": "npm run build_prepare",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test_cli:user_input": "npx tsup-node --no-config --format esm --entry.test_cli_user_input ./src/user-input/examples/index.ts && node ./dist/test_cli_user_input.mjs && rm ./dist/test_cli_user_input.mjs"
+  },
+  "author": "andymitchell",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-typescript": "^7.23.3",
+    "@supabase/supabase-js": "^2.43.4",
+    "@types/jest": "^29.5.12",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^20.14.0",
+    "@types/proper-lockfile": "^4.1.4",
+    "babel-jest": "^29.7.0",
+    "babel-plugin-transform-import-meta": "^2.2.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@andyrmitchell/file-io": "^0.4.0",
+    "@andyrmitchell/objects": "^0.4.12",
+    "@andyrmitchell/utils": "^0.4.1",
+    "dot-prop": "^9.0.0",
+    "lodash-es": "^4.17.21",
+    "proper-lockfile": "^4.1.2",
+    "zod": "^3.23.8"
+  }
+}
