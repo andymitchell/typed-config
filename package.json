@@ -1,6 +1,6 @@
 {
   "name": "@andyrmitchell/typed-config",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Get/set data from a config file with full TypeScript IDE autocomplete and TypeScript + Zod schema checking",
   "exports": {
     ".": {
