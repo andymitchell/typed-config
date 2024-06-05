@@ -33,7 +33,7 @@ export class TypedConfig<T extends Record<string, any>> implements ITypedConfig<
         const locationFull:Required<ConfigLocation> = Object.assign(
             {
                 type: 'file',
-                file: 'main',
+                file: 'tc_main',
                 path_from_package_root: 'config',
                 path_absolute: ''
             },
